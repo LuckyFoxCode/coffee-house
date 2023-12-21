@@ -1,0 +1,144 @@
+.header {
+  position: relative;
+  padding-block: 20px;
+  @include flex(space-between, center);
+
+  &__nav {
+    width: 100%;
+  }
+
+  &__menu {
+    position: relative;
+    @include flex(flex-start, center);
+    @include text(rem(32), 600, $TEXT-DARK);
+    text-transform: capitalize;
+    line-height: 150%;
+    cursor: pointer;
+    padding-bottom: 4px;
+    @include media($SCREEN_TABLET_LARGE) {
+      font-size: rem(16);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background-color: $TEXT-ACCENT;
+      @include transition(width);
+      @include media($SCREEN_TABLET_LARGE) {
+        height: 2px;
+      }
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &_icon {
+      @include size(40px);
+      margin-left: 16px;
+      @include media($SCREEN_TABLET_LARGE) {
+        @include size(20px);
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &__burger {
+    position: relative;
+    border: 1px solid $BG-CONTAINER;
+    cursor: pointer;
+    @include size(44px, true);
+    @include media($SCREEN_TABLET_LARGE) {
+      display: none;
+    }
+
+    &:hover::after {
+      bottom: 20px;
+      left: 13px;
+      transform: rotate(-45deg);
+    }
+
+    &:hover::before {
+      top: 20px;
+      transform: rotate(45deg);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 14px;
+      width: 16px;
+      height: 1px;
+      background-color: $BG-CONTAINER;
+      @include transition(transform);
+    }
+
+    &::before {
+      top: 16px;
+    }
+
+    &::after {
+      bottom: 16px;
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: $TEXT-LIGHT;
+  @include flex-col(flex-start, center);
+  @include media($SCREEN_TABLET_LARGE) {
+    @include flex-row(flex-start, center);
+    position: static;
+  }
+
+  &__list {
+    @include flex-col;
+    margin-bottom: 100px;
+    @include media($SCREEN_TABLET_LARGE) {
+      @include flex-row(center, center);
+      flex-grow: 2;
+      margin-bottom: 0;
+    }
+
+    &_item {
+      margin-bottom: 60px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      @include media($SCREEN_TABLET_LARGE) {
+        margin-bottom: 0;
+        margin-right: 40px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &_link {
+      display: block;
+      text-align: center;
+      @include media($SCREEN_TABLET_LARGE) {
+        text-align: start;
+      }
+      @include text(rem(32), 600, $TEXT-DARK);
+      @include transition(color);
+      line-height: 150%;
+
+      @include media($SCREEN_TABLET_LARGE) {
+        font-size: rem(16);
+      }
+
+      &:hover {
+        color: $TEXT-ACCENT;
+      }
+    }
+  }
+}

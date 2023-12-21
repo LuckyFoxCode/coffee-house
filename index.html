@@ -9,11 +9,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/style.scss">
 </head>
 
 <body>
+  <header class="header container">
+    <a href="/" class="header__logo">
+      <img src="/logo.svg" alt="Logo" class="header__logo_icon">
+    </a>
 
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__list_item">
+          <a href="#" class="nav__list_link">Favorite coffee</a>
+        </li>
+        <li class="nav__list_item">
+          <a href="#" class="nav__list_link">About</a>
+        </li>
+        <li class="nav__list_item">
+          <a href="#" class="nav__list_link">Mobile app</a>
+        </li>
+        <li class="nav__list_item">
+          <a href="#" class="nav__list_link">Contact us</a>
+        </li>
+      </ul>
+      <button class="header__nav-menu header__menu">menu
+        <img src="/coffee.svg" alt="Coffe Icon" class="header__menu_icon">
+      </button>
+    </nav>
+    <a href="#" class="header__burger"></a>
+  </header>
   <script type="module" src="./src/script/main.js"></script>
 </body>
 

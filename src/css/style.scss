@@ -1,4 +1,4 @@
-@import './common.css';
+@import './common.scss';
 
 * {
   padding: 0;
@@ -22,8 +22,8 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--TEXT-LIGHT);
-  color: var(--TEXT-DARK);
+  background-color: $TEXT-LIGHT;
+  color: $TEXT-DARK;
 }
 
 a {
@@ -38,4 +38,8 @@ button {
   outline: none;
   border: none;
   background-color: transparent;
+}
+
+.container {
+  padding-inline: 40px;
 }
