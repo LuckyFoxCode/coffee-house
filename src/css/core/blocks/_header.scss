@@ -5,6 +5,7 @@
 
   &__nav {
     width: 100%;
+    display: none;
   }
 
   &__menu {
@@ -23,10 +24,11 @@
       content: '';
       position: absolute;
       bottom: 0px;
-      left: 0;
+      left: 50%;
       width: 0;
       height: 4px;
       background-color: $TEXT-ACCENT;
+      transform: translate(-50%, -50%);
       @include transition(width);
       @include media($SCREEN_TABLET_LARGE) {
         height: 2px;
@@ -57,8 +59,8 @@
     }
 
     &:hover::after {
-      bottom: 20px;
-      left: 13px;
+      bottom: 21px;
+      left: 14px;
       transform: rotate(-45deg);
     }
 
@@ -93,7 +95,6 @@
   top: 100%;
   left: 0;
   background-color: $TEXT-LIGHT;
-  @include flex-col(flex-start, center);
   @include media($SCREEN_TABLET_LARGE) {
     @include flex-row(flex-start, center);
     position: static;
@@ -123,8 +124,10 @@
     }
 
     &_link {
+      position: relative;
       display: block;
       text-align: center;
+      padding-bottom: 4px;
       @include media($SCREEN_TABLET_LARGE) {
         text-align: start;
       }
@@ -136,9 +139,28 @@
         font-size: rem(16);
       }
 
-      &:hover {
-        color: $TEXT-ACCENT;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 4px;
+        background-color: $TEXT-ACCENT;
+        transform: translate(-50%, -50%);
+        @include transition(width);
+        @include media($SCREEN_TABLET_LARGE) {
+          height: 2px;
+        }
+      }
+
+      &:hover::after {
+        width: 100%;
       }
     }
   }
+}
+
+.show {
+  @include flex-col(flex-start, center);
 }
