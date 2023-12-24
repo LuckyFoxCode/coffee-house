@@ -4,20 +4,26 @@
 
 ## Scripts:
 
+Initialization:
+
+```bash
+yarn || npm install
+```
+
 Development:
 
 ```bash
-yarn dev
+yarn dev || npm run dev
 ```
 
 Production:
 
 ```bash
-yarn build
+yarn build || npm run build
 ```
 
 Lint:
 
 ```bash
-yarn lint
+yarn lint || npm run lint
 ```
